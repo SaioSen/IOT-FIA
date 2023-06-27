@@ -1,0 +1,531 @@
+[
+    {
+        "id": "b480fd696cc64f5d",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "073819033968e98e",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a31a053b304ba3c1",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0a3ee10b8cd4cc9f",
+        "type": "mqtt-broker",
+        "name": "ESP32",
+        "broker": "192.168.1.35",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "3",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "13a419222756b115",
+        "type": "influxdb",
+        "hostname": "172.28.112.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "Sensores",
+        "name": "Influxdb",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://172.28.112.1:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "f7b4bce40edb632b",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "",
+        "port": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a756a9e16a3570e6",
+        "type": "mqtt in",
+        "z": "b480fd696cc64f5d",
+        "name": "",
+        "topic": "#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0a3ee10b8cd4cc9f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "e19bfbe0d2278568",
+                "a24120ea15787794"
+            ]
+        ]
+    },
+    {
+        "id": "d04d4968138bcdea",
+        "type": "debug",
+        "z": "b480fd696cc64f5d",
+        "name": "object",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d50811df253b8380",
+        "type": "debug",
+        "z": "b480fd696cc64f5d",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "e8b73ed0a2ede45d",
+        "type": "inject",
+        "z": "b480fd696cc64f5d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"edificio\" : \"0\"}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "27d7e62713e90374",
+        "type": "debug",
+        "z": "b480fd696cc64f5d",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "24b0424dee6c4859",
+        "type": "inject",
+        "z": "b480fd696cc64f5d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"temperatura\":45,\"unidad\":\"°C\"}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 580,
+        "wires": [
+            [
+                "41c621132c47cf31"
+            ]
+        ]
+    },
+    {
+        "id": "41c621132c47cf31",
+        "type": "debug",
+        "z": "b480fd696cc64f5d",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "bab8e44e810b4bd4",
+        "type": "inject",
+        "z": "b480fd696cc64f5d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"temepratura\":100}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 660,
+        "wires": [
+            [
+                "41c621132c47cf31"
+            ]
+        ]
+    },
+    {
+        "id": "e19bfbe0d2278568",
+        "type": "function",
+        "z": "b480fd696cc64f5d",
+        "name": "function 1",
+        "func": "var mensaje = msg.payload\n\nvar presion = mensaje.value\n\nif(presion>30){\n    msg.payload={\n        \"valor\": presion,\n        \"presion\": \"alta\"\n    }\n}else{\n    msg.payload = {\n        \"valor\": presion,\n        \"presion\": \"baja\"\n    }\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "d04d4968138bcdea",
+                "8d93c807cfdd118d"
+            ]
+        ]
+    },
+    {
+        "id": "8d93c807cfdd118d",
+        "type": "debug",
+        "z": "b480fd696cc64f5d",
+        "name": "payload",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a24120ea15787794",
+        "type": "debug",
+        "z": "b480fd696cc64f5d",
+        "name": "expresion",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "msg.payload.",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e3fd232e1f7e9ad9",
+        "type": "inject",
+        "z": "073819033968e98e",
+        "name": "backyordigans",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "sasha",
+                "v": "y yo sasha",
+                "vt": "str"
+            },
+            {
+                "p": "backyordigans",
+                "v": "y juntos somos los backyordigans",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "yo el topic",
+        "payload": "soy el payload",
+        "payloadType": "str",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "84c581c55f89a9dd"
+            ]
+        ]
+    },
+    {
+        "id": "84c581c55f89a9dd",
+        "type": "function",
+        "z": "073819033968e98e",
+        "name": "function 2",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "4cb71cfd3b0971e4"
+            ]
+        ]
+    },
+    {
+        "id": "4cb71cfd3b0971e4",
+        "type": "debug",
+        "z": "073819033968e98e",
+        "name": "debug 5",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "msg\t",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "78000f1512209002",
+        "type": "json",
+        "z": "073819033968e98e",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 390,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8b6972312b8b79cf",
+        "type": "change",
+        "z": "073819033968e98e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7abcc0b7faa03b83",
+        "type": "debug",
+        "z": "a31a053b304ba3c1",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "79815e41e513d493",
+        "type": "function",
+        "z": "a31a053b304ba3c1",
+        "name": "function 3",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf75ec0458d2466a",
+        "type": "influxdb out",
+        "z": "a31a053b304ba3c1",
+        "influxdb": "13a419222756b115",
+        "name": "",
+        "measurement": "temperatura",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "Labsti",
+        "bucket": "Sensores",
+        "x": 680,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "d768da5ee63a10a7",
+        "type": "debug",
+        "z": "a31a053b304ba3c1",
+        "name": "debug 7",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "4e8b1cb0c45c131d",
+        "type": "change",
+        "z": "a31a053b304ba3c1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{    \"temperatura\": msg.payload.temp,    \"CO2\":msg.payload.co2,    \"ambiente\": \"laboratorio1\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d95612252918dee2",
+        "type": "json",
+        "z": "a31a053b304ba3c1",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 530,
+        "y": 240,
+        "wires": [
+            []
+        ],
+        "info": "{    \"temperatura\": msg.payload.temp,\r\n     \"CO2\":msg.payload.co2,\r\n     \"ambiente\": \"laboratorio1\"\r\n     }"
+    }
+]
